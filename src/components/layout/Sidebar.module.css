@@ -1,0 +1,123 @@
+.sidebar {
+  width: 220px;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  flex-shrink: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.scrollArea {
+  flex: 1;
+  overflow-y: auto;
+  padding-top: 8px; /* Minimal top space */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.scrollArea::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+.sectionLabel {
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 14px 20px 6px;
+  font-weight: 500;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s;
+  border: none;
+  background: transparent;
+  border-left: 3px solid transparent;
+  text-align: left;
+  font-family: var(--font-body);
+}
+
+.navItem:hover {
+  color: var(--text);
+  background: var(--surface2);
+}
+
+.navItem.active {
+  color: var(--accent);
+  background: rgba(0, 212, 255, 0.08);
+  border-left-color: var(--accent);
+}
+
+.icon {
+  font-size: 15px;
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.navBadge {
+  margin-left: auto;
+  background: var(--accent);
+  color: #0a0e1a;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: 10px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.footer {
+  margin-top: auto;
+  padding: 20px 10px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.05); /* Subtle distinction */
+}
+
+.poweredBy {
+  font-size: 9px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  /* More elegant spacing */
+  margin-bottom: 10px;
+  opacity: 0.7;
+}
+
+.footerLogo {
+  width: 100%;
+  max-width: 160px;
+  height: auto;
+  display: block;
+  opacity: 0.9;
+  mix-blend-mode: screen;
+  /* Removes black background */
+  transition: opacity 0.3s, transform 0.3s;
+  margin-top: 4px;
+}
+
+.footerLogo:hover {
+  opacity: 1;
+  transform: scale(1.02);
+}
+
+:global([data-theme='light']) .footerLogo {
+  filter: invert(1);
+  mix-blend-mode: multiply;
+  /* Works for light mode after inversion */
+}
