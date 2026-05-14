@@ -51,7 +51,6 @@ export default function ManageCourses() {
     <div className={styles.page + ' fade-in'}>
       <div className={styles.header}>
         <div className={styles.title}>Manage Courses</div>
-        <div className={styles.subtitle}>Edit content, add modules, manage curriculum</div>
       </div>
 
       <div style={{ marginBottom: 16 }}>

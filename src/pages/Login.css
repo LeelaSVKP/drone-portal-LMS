@@ -8,14 +8,15 @@
   align-items: center;
   justify-content: center;
   background: radial-gradient(circle at center, rgba(10, 14, 26, 0.1), rgba(10, 14, 26, 0.4)),
-              url('/drone-bg-v3.png') no-repeat center center;
+    url('/drone-bg-v3.png') no-repeat center center;
   background-size: cover;
   background-color: #0a1122;
   z-index: 99999;
 }
 
 .login-box {
-  background: rgba(13, 18, 30, 0.4); /* High transparency */
+  background: rgba(13, 18, 30, 0.4);
+  /* High transparency */
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(255, 255, 255, 0.15);

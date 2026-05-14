@@ -44,7 +44,6 @@ export default function Attendance() {
       <div className={styles.header}>
         <div style={{ flex: 1 }}>
           <div className={styles.title}>Student Attendance</div>
-          <div className={styles.subtitle}>Track and manage daily attendance for your drone batches</div>
         </div>
         <Button onClick={handleSaveAttendance} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <Save size={18} />

@@ -4,9 +4,10 @@ export function Badge({ variant = 'blue', children }) {
   return <span className={`${styles.badge} ${styles[`badge_${variant}`]}`}>{children}</span>
 }
 
-export function Button({ variant = 'primary', size = 'md', onClick, children, fullWidth, disabled }) {
+export function Button({ variant = 'primary', size = 'md', onClick, children, fullWidth, disabled, type = 'button' }) {
   return (
     <button
+      type={type}
       className={`${styles.btn} ${styles[`btn_${variant}`]} ${styles[`btn_${size}`]} ${fullWidth ? styles.fullWidth : ''}`}
       onClick={onClick}
       disabled={disabled}

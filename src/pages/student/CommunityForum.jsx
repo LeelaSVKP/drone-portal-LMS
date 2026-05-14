@@ -93,7 +93,6 @@ export default function CommunityForum() {
       <div className={styles.header} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '30px' }}>
         <div style={{ flex: 1 }}>
           <div className={styles.title}>Pilot Community</div>
-          <div className={styles.subtitle}>Connect, share, and learn with fellow drone enthusiasts and instructors.</div>
         </div>
         <Button
           onClick={() => setShowModal(true)}

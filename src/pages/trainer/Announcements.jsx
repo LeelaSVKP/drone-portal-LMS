@@ -54,7 +54,6 @@ export default function Announcements() {
       <div className={styles.header}>
         <div style={{ flex: 1 }}>
           <div className={styles.title}>Manage Announcements</div>
-          <div className={styles.subtitle}>Broadcast important updates and news to your drone students.</div>
         </div>
         <Button onClick={() => setShowAddModal(true)} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <Plus size={18} />

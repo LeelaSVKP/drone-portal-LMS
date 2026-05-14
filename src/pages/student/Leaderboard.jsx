@@ -25,7 +25,6 @@ export default function Leaderboard() {
     <div className={styles.page + ' fade-in'}>
       <div className={styles.header}>
         <div className={styles.title}>Pilot Leaderboard</div>
-        <div className={styles.subtitle}>Compete with fellow pilots and climb the ranks based on your performance.</div>
       </div>
 
       <div className={styles.grid2} style={{ marginBottom: '24px' }}>

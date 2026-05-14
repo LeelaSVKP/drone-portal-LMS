@@ -34,7 +34,6 @@ export default function MaintenanceTracker() {
       <div className={styles.header} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '30px' }}>
         <div>
           <div className={styles.title}>Maintenance Tracker</div>
-          <div className={styles.subtitle}>Keep your fleet in optimal flying condition with preventive logging.</div>
         </div>
         <Button 
           onClick={() => setShowModal(true)}

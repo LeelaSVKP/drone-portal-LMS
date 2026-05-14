@@ -11,7 +11,6 @@ export default function TrainerDashboard() {
     <div className={styles.page + ' fade-in'}>
       <div className={styles.header}>
         <div className={styles.title}>Trainer Dashboard</div>
-        <div className={styles.subtitle}>{user?.name} · {user?.specialization}</div>
       </div>
 
       <div className={styles.stats}>

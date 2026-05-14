@@ -88,7 +88,6 @@ export default function ResourceLibrary() {
       <div className={styles.header}>
         <div style={{ flex: 1 }}>
           <div className={styles.title}>Resource Library</div>
-          <div className={styles.subtitle}>Access drone manuals, checklists, and regulatory documents.</div>
         </div>
         {isTrainer && (
           <Button onClick={() => setShowUploadModal(true)} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>

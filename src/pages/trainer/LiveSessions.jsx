@@ -50,7 +50,6 @@ export default function LiveSessions() {
     <div className={styles.page + ' fade-in'}>
       <div className={styles.header}>
         <div className={styles.title}>Live Sessions</div>
-        <div className={styles.subtitle}>Schedule and manage online classes</div>
       </div>
 
       <div style={{ marginBottom: 16 }}>

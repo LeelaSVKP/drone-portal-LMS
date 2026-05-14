@@ -18,7 +18,6 @@ export default function CertificationRoadmap() {
       <div className={styles.header}>
         <div style={{ flex: 1 }}>
           <div className={styles.title}>DGCA Certification Roadmap</div>
-          <div className={styles.subtitle}>Track your path to becoming a professional certified drone pilot.</div>
         </div>
         <div style={{ textAlign: 'right' }}>
           <div style={{ fontSize: '24px', fontWeight: '800', color: 'var(--accent)' }}>35%</div>

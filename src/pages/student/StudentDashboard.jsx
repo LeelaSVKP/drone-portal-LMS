@@ -50,7 +50,6 @@ export default function StudentDashboard({ onNavigate }) {
     <div className={styles.page + ' fade-in'}>
       <div className={styles.header}>
         <div className={styles.title}>Welcome back, {user?.name?.split(' ')[0]}!</div>
-        <div className={styles.subtitle}>Your drone learning journey — today is a great day to fly higher.</div>
       </div>
 
       <div className={styles.statsGrid}>

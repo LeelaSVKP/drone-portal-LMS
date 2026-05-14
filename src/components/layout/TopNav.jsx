@@ -7,7 +7,9 @@ import styles from './TopNav.module.css'
 export default function TopNav({ onLogout, onNavigate }) {
   const { user } = useAuth()
   const { theme, toggleTheme } = useTheme()
-  const isTrainer = user?.role === 'trainer'
+  const role = user?.role || 'student'
+  const isTrainer = role === 'trainer'
+  const isAdmin = role === 'admin'
 
   return (
     <header className={styles.nav}>
@@ -19,8 +21,8 @@ export default function TopNav({ onLogout, onNavigate }) {
       </div>
 
       <div className={styles.right}>
-        <div className={styles.roleBadge} data-role={user?.role}>
-          {isTrainer ? 'Trainer' : 'Student'}
+        <div className={styles.roleBadge} data-role={role}>
+          {role.charAt(0).toUpperCase() + role.slice(1)}
         </div>
         <button className={styles.iconBtn} title="Notifications" onClick={() => onNavigate && onNavigate('notifications')}>
           <Bell size={16} />
@@ -35,8 +37,8 @@ export default function TopNav({ onLogout, onNavigate }) {
         <div onClick={() => onNavigate && onNavigate('profile')} style={{ cursor: 'pointer' }}>
           <Avatar
             initials={user?.avatar}
-            color1={isTrainer ? 'var(--accent2)' : 'var(--accent2)'}
-            color2={isTrainer ? '#c026d3' : 'var(--accent)'}
+            color1={isAdmin ? '#ffd700' : isTrainer ? 'var(--accent2)' : 'var(--accent2)'}
+            color2={isAdmin ? '#1e3a8a' : isTrainer ? '#c026d3' : 'var(--accent)'}
             size={34}
           />
         </div>

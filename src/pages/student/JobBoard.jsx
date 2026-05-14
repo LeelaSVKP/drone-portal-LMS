@@ -91,9 +91,6 @@ export default function JobBoard({ onNavigate }) {
       <div className={styles.header} style={{ marginBottom: '30px' }}>
         <div style={{ flex: 1 }}>
           <div className={styles.title}>Pilot Opportunities</div>
-          <div className={styles.subtitle} style={{ marginBottom: '20px' }}>
-            Exclusive job openings for Akin Drone Academy certified pilots.
-          </div>
 
           <div style={{
             position: 'relative',

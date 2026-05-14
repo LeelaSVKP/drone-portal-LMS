@@ -26,7 +26,6 @@ export default function DigitalIDCard() {
       <div className={styles.header} style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '20px' }}>
         <div style={{ flex: '1', minWidth: '300px' }}>
           <div className={styles.title}>Digital Pilot ID</div>
-          <div className={styles.subtitle}>Your official training identification for field operations.</div>
         </div>
         <div style={{ display: 'flex', gap: '12px', marginTop: '10px' }}>
           <Button 

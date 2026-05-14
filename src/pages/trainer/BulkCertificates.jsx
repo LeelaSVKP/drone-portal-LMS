@@ -33,7 +33,6 @@ export default function BulkCertificates() {
       <div className={styles.header}>
         <div style={{ flex: 1 }}>
           <div className={styles.title}>Bulk Certificate Issuance</div>
-          <div className={styles.subtitle}>Verify and issue digital Remote Pilot Certificates to multiple students at once.</div>
         </div>
         <Button 
           onClick={() => setShowConfirmModal(true)} 

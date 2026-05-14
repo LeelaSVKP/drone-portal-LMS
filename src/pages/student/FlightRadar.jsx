@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Card, CardHeader, Badge } from '../../components/shared/SharedComponents'
-import { Radio, Navigation, Shield, Info, Map as MapIcon, Layers } from 'lucide-react'
+import { Radio, Navigation as NavIcon, Shield, Info, Map as MapIcon, Layers } from 'lucide-react'
 import styles from './StudentDashboard.module.css'
 
 export default function FlightRadar() {
@@ -27,9 +27,6 @@ export default function FlightRadar() {
       <div className={styles.header} style={{ marginBottom: '32px' }}>
         <div>
           <div className={styles.title}>Live Flight Radar</div>
-          <div className={styles.subtitle} style={{ marginBottom: '16px' }}>
-            Real-time tracking of active drone sorties in the academy training zone.
-          </div>
           <div style={{ display: 'flex' }}>
             <Badge variant="green" style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '6px 12px' }}>
               <span style={{ width: '8px', height: '8px', background: '#fff', borderRadius: '50%', animation: 'pulse 1.5s infinite' }}></span>

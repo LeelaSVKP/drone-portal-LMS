@@ -7,7 +7,7 @@ export function CourseProvider({ children }) {
   const [courses, setCourses] = useState(COURSES)
 
   const enrollCourse = (courseId) => {
-    setCourses(prevCourses => 
+    setCourses(prevCourses =>
       prevCourses.map(course => {
         if (course.id === courseId) {
           if (course.enrolled) return course;
@@ -19,7 +19,7 @@ export function CourseProvider({ children }) {
   }
 
   const updateCourseProgress = (courseId, amount) => {
-    setCourses(prevCourses => 
+    setCourses(prevCourses =>
       prevCourses.map(course => {
         if (course.id === courseId) {
           const newProgress = Math.min(course.progress + amount, 100);

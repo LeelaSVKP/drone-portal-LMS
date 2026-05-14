@@ -23,9 +23,6 @@ export default function SessionRecordingHub() {
       <div className={styles.header} style={{ marginBottom: '32px' }}>
         <div style={{ flex: 1 }}>
           <div className={styles.title}>Live Session Recordings</div>
-          <div className={styles.subtitle} style={{ marginBottom: '20px' }}>
-            Watch recordings of past live classes and workshops at your own pace.
-          </div>
 
           <div style={{ position: 'relative', maxWidth: '450px' }}>
             <Search

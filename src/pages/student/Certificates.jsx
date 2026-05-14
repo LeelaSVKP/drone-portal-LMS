@@ -15,7 +15,6 @@ export default function Certificates({ onNavigate }) {
     <div className={styles.page + ' fade-in'}>
       <div className={styles.header}>
         <div className={styles.title}>My Certificates</div>
-        <div className={styles.subtitle}>Your earned credentials from Akin Analytics Drone Academy</div>
       </div>
 
       <div style={{ display: 'grid', gap: 16 }}>

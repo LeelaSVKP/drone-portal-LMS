@@ -40,7 +40,6 @@ export default function FlightLogbook() {
       <div className={styles.header} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div>
           <div className={styles.title}>Pilot Logbook</div>
-          <div className={styles.subtitle}>Maintain your official record of flight hours and drone operations.</div>
         </div>
         <Button onClick={() => setShowAddModal(true)} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <Plus size={18} />

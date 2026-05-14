@@ -25,6 +25,16 @@ export const MOCK_USERS = {
     experience: '6 years',
     city: 'Hyderabad, Telangana',
   },
+  admin: {
+    id: 'adm-001',
+    name: 'Akin Analytics',
+    email: 'admin@akin.com',
+    role: 'admin',
+    avatar: 'AA',
+    city: 'Hyderabad, TS',
+    phone: '+91 9999988888',
+    joinDate: 'December 2024',
+  },
 }
 
 export function AuthProvider({ children }) {

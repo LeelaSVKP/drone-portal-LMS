@@ -74,7 +74,6 @@ export default function UploadContent() {
     <div className={styles.page + ' fade-in'}>
       <div className={styles.header}>
         <div className={styles.title}>Upload New Course</div>
-        <div className={styles.subtitle}>Create a new course and upload its primary content</div>
       </div>
 
       <Card style={{ maxWidth: 500 }}>

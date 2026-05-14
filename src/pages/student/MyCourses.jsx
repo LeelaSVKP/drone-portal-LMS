@@ -22,7 +22,6 @@ export default function MyCourses() {
     <div className={styles.page + ' fade-in'}>
       <div className={styles.header}>
         <div className={styles.title}>My Courses</div>
-        <div className={styles.subtitle}>Track your enrolled courses and progress</div>
       </div>
 
       <div className={styles.statsGrid}>

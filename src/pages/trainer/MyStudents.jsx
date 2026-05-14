@@ -39,7 +39,6 @@ export default function MyStudents() {
       <div className={styles.header}>
         <div style={{ flex: 1 }}>
           <div className={styles.title}>My Students</div>
-          <div className={styles.subtitle}>Monitor progress and send feedback</div>
         </div>
         <Button onClick={() => setShowAddModal(true)}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>

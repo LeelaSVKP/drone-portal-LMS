@@ -50,7 +50,6 @@ export default function Quizzes() {
       <div className={styles.page + ' fade-in'}>
         <div className={styles.header}>
           <div className={styles.title}>Quizzes & Assessments</div>
-          <div className={styles.subtitle}>Test your knowledge and track your scores</div>
         </div>
 
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
@@ -107,7 +106,6 @@ export default function Quizzes() {
     <div className={styles.page + ' fade-in'}>
       <div className={styles.header}>
         <div className={styles.title}>Quizzes & Assessments</div>
-        <div className={styles.subtitle}>Test your knowledge and track your scores</div>
       </div>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>

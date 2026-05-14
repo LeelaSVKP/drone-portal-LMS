@@ -7,7 +7,7 @@ export function QuizProvider({ children }) {
   const [quizzes, setQuizzes] = useState(QUIZ_BANK)
 
   const submitQuiz = (quizId, score, correct, total) => {
-    setQuizzes(prev => 
+    setQuizzes(prev =>
       prev.map(quiz => {
         if (quiz.id === quizId) {
           return {

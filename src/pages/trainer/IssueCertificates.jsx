@@ -14,7 +14,6 @@ export default function IssueCertificates() {
     <div className={styles.page + ' fade-in'}>
       <div className={styles.header}>
         <div className={styles.title}>Issue Certificates</div>
-        <div className={styles.subtitle}>Award certificates to students who complete courses</div>
       </div>
 
       <Card>

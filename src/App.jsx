@@ -27,7 +27,12 @@ import {
   Radio,
   Activity,
   Monitor,
-  MessageSquare
+  MessageSquare,
+  Shield,
+  Settings,
+  Lock,
+  DollarSign,
+  Navigation as NavIcon
 } from 'lucide-react'
 
 // Student Pages
@@ -62,9 +67,20 @@ import Attendance from './pages/trainer/Attendance'
 import Announcements from './pages/trainer/Announcements'
 import ResourceLibrary from './pages/shared/ResourceLibrary'
 import BulkCertificates from './pages/trainer/BulkCertificates'
-import AIFlightAssistant from './components/shared/AIFlightAssistant'
+
+// Admin Pages
+import AdminDashboard from './pages/admin/AdminDashboard'
+import UserManagement from './pages/admin/UserManagement'
+import Permissions from './pages/admin/Permissions'
+import SystemSettings from './pages/admin/SystemSettings'
+import RevenuePayments from './pages/admin/RevenuePayments'
+import SupportTickets from './pages/admin/SupportTickets'
+import GlobalAnnouncements from './pages/admin/GlobalAnnouncements'
+import FleetManagement from './pages/admin/FleetManagement'
+import AuditLogs from './pages/admin/AuditLogs'
 
 import './App.css'
+import AIFlightAssistant from './components/shared/AIFlightAssistant'
 
 function AppLayout() {
   const { user, logout } = useAuth()
@@ -79,109 +95,157 @@ function AppLayout() {
     return <Login />
   }
 
-  const isStudent = user.role === 'student'
+  const role = user.role
 
-  const sidebarItems = isStudent
+  const sidebarItems = role === 'student'
     ? [
-      {
-        section: 'Main',
-        links: [
-          { id: 'dashboard', label: 'Dashboard', icon: <LayoutDashboard size={20} /> },
-          { id: 'resources', label: 'Resources', icon: <BookOpen size={20} /> },
-          { id: 'courses', label: 'My Courses', icon: <Search size={20} /> },
-          { id: 'browse', label: 'Browse Courses', icon: <Rocket size={20} /> },
-        ],
-      },
-      {
-        section: 'Learn',
-        links: [
-          { id: 'quiz', label: 'Quizzes', icon: <FileQuestion size={20} /> },
-          { id: 'logbook', label: 'Flight Logbook', icon: <Plane size={20} /> },
-          { id: 'leaderboard', label: 'Leaderboard', icon: <Trophy size={20} /> },
-          { id: 'roadmap', label: 'Certification Path', icon: <TrendingUp size={20} /> },
-          { id: 'idcard', label: 'Digital Pilot ID', icon: <User size={20} /> },
-          { id: 'jobs', label: 'Pilot Jobs', icon: <Briefcase size={20} /> },
-          { id: 'radar', label: 'Live Radar', icon: <Radio size={20} /> },
-          { id: 'maintenance', label: 'Fleet Health', icon: <Activity size={20} /> },
-          { id: 'recordings', label: 'Live Recordings', icon: <Monitor size={20} /> },
-          { id: 'forum', label: 'Community', icon: <MessageSquare size={20} /> },
-          { id: 'certs', label: 'Certificates', icon: <Award size={20} /> },
-        ],
-      },
-      {
-        section: 'Account',
-        links: [
-          { id: 'notifications', label: 'Notifications', icon: <Bell size={20} /> },
-          { id: 'profile', label: 'Profile', icon: <User size={20} /> },
-        ],
-      },
-    ]
+        {
+          section: 'Main',
+          links: [
+            { id: 'dashboard', label: 'Dashboard', icon: <LayoutDashboard size={20} /> },
+            { id: 'resources', label: 'Resources', icon: <BookOpen size={20} /> },
+            { id: 'courses', label: 'My Courses', icon: <Search size={20} /> },
+            { id: 'browse', label: 'Browse Courses', icon: <Rocket size={20} /> },
+          ],
+        },
+        {
+          section: 'Learn',
+          links: [
+            { id: 'quiz', label: 'Quizzes', icon: <FileQuestion size={20} /> },
+            { id: 'logbook', label: 'Flight Logbook', icon: <Plane size={20} /> },
+            { id: 'leaderboard', label: 'Leaderboard', icon: <Trophy size={20} /> },
+            { id: 'roadmap', label: 'Certification Path', icon: <TrendingUp size={20} /> },
+            { id: 'idcard', label: 'Digital Pilot ID', icon: <User size={20} /> },
+            { id: 'jobs', label: 'Pilot Jobs', icon: <Briefcase size={20} /> },
+            { id: 'radar', label: 'Live Radar', icon: <Radio size={20} /> },
+            { id: 'maintenance', label: 'Fleet Health', icon: <Activity size={20} /> },
+            { id: 'recordings', label: 'Live Recordings', icon: <Monitor size={20} /> },
+            { id: 'forum', label: 'Community', icon: <MessageSquare size={20} /> },
+            { id: 'certs', label: 'Certificates', icon: <Award size={20} /> },
+          ],
+        },
+        {
+          section: 'Account',
+          links: [
+            { id: 'notifications', label: 'Notifications', icon: <Bell size={20} /> },
+            { id: 'profile', label: 'Profile', icon: <User size={20} /> },
+          ],
+        },
+      ]
+    : role === 'trainer'
+    ? [
+        {
+          section: 'Trainer',
+          links: [
+            { id: 'dashboard', label: 'Dashboard', icon: <LayoutDashboard size={20} /> },
+            { id: 'students', label: 'My Students', icon: <Users size={20} /> },
+            { id: 'attendance', label: 'Attendance', icon: <Check size={20} /> },
+            { id: 'announcements', label: 'Announcements', icon: <Bell size={20} /> },
+            { id: 'courses', label: 'Manage Courses', icon: <BookOpen size={20} /> },
+            { id: 'quizzes', label: 'Quizzes & Tests', icon: <FileQuestion size={20} /> },
+            { id: 'analytics', label: 'Analytics', icon: <PieChart size={20} /> },
+          ],
+        },
+        {
+          section: 'Tools',
+          links: [
+            { id: 'resources', label: 'Resource Library', icon: <BookOpen size={20} /> },
+            { id: 'bulk-certs', label: 'Bulk Certificates', icon: <Award size={20} /> },
+            { id: 'upload', label: 'Upload Content', icon: <Upload size={20} /> },
+            { id: 'certs', label: 'Issue Certificates', icon: <Award size={20} /> },
+            { id: 'schedule', label: 'Live Sessions', icon: <Calendar size={20} /> },
+          ],
+        },
+      ]
     : [
-      {
-        section: 'Trainer',
-        links: [
-          { id: 'dashboard', label: 'Dashboard', icon: <LayoutDashboard size={20} /> },
-          { id: 'students', label: 'My Students', icon: <Users size={20} /> },
-          { id: 'attendance', label: 'Attendance', icon: <Check size={20} /> },
-          { id: 'announcements', label: 'Announcements', icon: <Bell size={20} /> },
-          { id: 'courses', label: 'Manage Courses', icon: <BookOpen size={20} /> },
-          { id: 'quizzes', label: 'Quizzes & Tests', icon: <FileQuestion size={20} /> },
-          { id: 'analytics', label: 'Analytics', icon: <PieChart size={20} /> },
-        ],
-      },
-      {
-        section: 'Tools',
-        links: [
-          { id: 'resources', label: 'Resource Library', icon: <BookOpen size={20} /> },
-          { id: 'bulk-certs', label: 'Bulk Certificates', icon: <Award size={20} /> },
-          { id: 'upload', label: 'Upload Content', icon: <Upload size={20} /> },
-          { id: 'certs', label: 'Issue Certificates', icon: <Award size={20} /> },
-          { id: 'schedule', label: 'Live Sessions', icon: <Calendar size={20} /> },
-        ],
-      },
-    ]
+        {
+          section: 'Admin Panel',
+          links: [
+            { id: 'dashboard', label: 'Dashboard', icon: <LayoutDashboard size={20} /> },
+            { id: 'users', label: 'User Management', icon: <Users size={20} /> },
+            { id: 'fleet', label: 'Fleet Management', icon: <Plane size={20} /> },
+            { id: 'courses', label: 'Course Catalog', icon: <BookOpen size={20} /> },
+            { id: 'analytics', label: 'Global Analytics', icon: <PieChart size={20} /> },
+          ],
+        },
+        {
+          section: 'Management',
+          links: [
+            { id: 'revenue', label: 'Revenue & Billing', icon: <DollarSign size={20} /> },
+            { id: 'support', label: 'Support Desk', icon: <MessageSquare size={20} /> },
+            { id: 'global-announcements', label: 'Announcements', icon: <Bell size={20} /> },
+          ],
+        },
+        {
+          section: 'Security',
+          links: [
+            { id: 'logs', label: 'Audit Logs', icon: <Shield size={20} /> },
+            { id: 'permissions', label: 'Permissions', icon: <Lock size={20} /> },
+            { id: 'settings', label: 'System Settings', icon: <Settings size={20} /> },
+          ],
+        },
+      ]
 
   const renderPage = () => {
-    if (isStudent) {
-      switch (activePage) {
-        case 'dashboard': return <StudentDashboard onNavigate={setActivePage} />
-        case 'resources': return <ResourceLibrary />
-        case 'courses': return <MyCourses />
-        case 'browse': return <BrowseCourses />
-        case 'quiz': return <Quizzes />
-        case 'logbook': return <FlightLogbook />
-        case 'leaderboard': return <Leaderboard />
-        case 'roadmap': return <CertificationRoadmap />
-        case 'idcard': return <DigitalIDCard />
-        case 'jobs': return <JobBoard />
-        case 'radar': return <FlightRadar />
-        case 'maintenance': return <MaintenanceTracker />
-        case 'recordings': return <SessionRecordingHub />
-        case 'forum': return <CommunityForum />
-        case 'certs': return <Certificates onNavigate={setActivePage} />
-        case 'progress': return <MyProgress />
-        case 'notifications': return <Notifications />
-        case 'profile': return <Profile />
-        default: return <StudentDashboard onNavigate={setActivePage} />
-      }
-    } else {
-      switch (activePage) {
-        case 'dashboard': return <TrainerDashboard />
-        case 'students': return <MyStudents />
-        case 'courses': return <ManageCourses />
-        case 'quizzes': return <TrainerQuizzes />
-        case 'analytics': return <Analytics />
-        case 'upload': return <UploadContent />
-        case 'certs': return <IssueCertificates />
-        case 'schedule': return <LiveSessions />
-        case 'attendance': return <Attendance />
-        case 'announcements': return <Announcements />
-        case 'resources': return <ResourceLibrary />
-        case 'bulk-certs': return <BulkCertificates />
-        case 'notifications': return <Notifications />
-        case 'profile': return <Profile />
-        default: return <TrainerDashboard />
-      }
+    switch (role) {
+      case 'student':
+        switch (activePage) {
+          case 'dashboard': return <StudentDashboard onNavigate={setActivePage} />
+          case 'resources': return <ResourceLibrary />
+          case 'courses': return <MyCourses />
+          case 'browse': return <BrowseCourses />
+          case 'quiz': return <Quizzes />
+          case 'logbook': return <FlightLogbook />
+          case 'leaderboard': return <Leaderboard />
+          case 'roadmap': return <CertificationRoadmap />
+          case 'idcard': return <DigitalIDCard />
+          case 'jobs': return <JobBoard onNavigate={setActivePage} />
+          case 'radar': return <FlightRadar />
+          case 'maintenance': return <MaintenanceTracker />
+          case 'recordings': return <SessionRecordingHub />
+          case 'forum': return <CommunityForum />
+          case 'certs': return <Certificates onNavigate={setActivePage} />
+          case 'progress': return <MyProgress />
+          case 'notifications': return <Notifications />
+          case 'profile': return <Profile />
+          default: return <StudentDashboard onNavigate={setActivePage} />
+        }
+      case 'trainer':
+        switch (activePage) {
+          case 'dashboard': return <TrainerDashboard />
+          case 'students': return <MyStudents />
+          case 'courses': return <ManageCourses />
+          case 'quizzes': return <TrainerQuizzes />
+          case 'analytics': return <Analytics />
+          case 'upload': return <UploadContent />
+          case 'certs': return <IssueCertificates />
+          case 'schedule': return <LiveSessions />
+          case 'attendance': return <Attendance />
+          case 'announcements': return <Announcements />
+          case 'resources': return <ResourceLibrary />
+          case 'bulk-certs': return <BulkCertificates />
+          case 'notifications': return <Notifications />
+          case 'profile': return <Profile />
+          default: return <TrainerDashboard />
+        }
+      case 'admin':
+        switch (activePage) {
+          case 'dashboard': return <AdminDashboard />
+          case 'users': return <UserManagement />
+          case 'fleet': return <FleetManagement />
+          case 'courses': return <ManageCourses />
+          case 'analytics': return <Analytics />
+          case 'revenue': return <RevenuePayments />
+          case 'support': return <SupportTickets />
+          case 'global-announcements': return <GlobalAnnouncements />
+          case 'permissions': return <Permissions />
+          case 'settings': return <SystemSettings />
+          case 'logs': return <AuditLogs />
+          case 'notifications': return <Notifications />
+          case 'profile': return <Profile />
+          default: return <AdminDashboard />
+        }
+      default: return <Login />
     }
   }
 

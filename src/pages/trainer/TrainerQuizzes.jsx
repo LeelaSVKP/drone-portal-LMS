@@ -33,7 +33,6 @@ export default function TrainerQuizzes() {
     <div className={styles.page + ' fade-in'}>
       <div className={styles.header}>
         <div className={styles.title}>Quizzes & Assessments</div>
-        <div className={styles.subtitle}>Create, edit, and review quiz performance</div>
       </div>
 
       <div style={{ marginBottom: 16 }}>

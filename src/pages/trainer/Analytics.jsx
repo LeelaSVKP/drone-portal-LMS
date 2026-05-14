@@ -40,7 +40,6 @@ export default function Analytics() {
     <div className={styles.page + ' fade-in'}>
       <div className={styles.header}>
         <div className={styles.title}>Analytics & Insights</div>
-        <div className={styles.subtitle}>Real-time performance metrics across your training ecosystem</div>
       </div>
 
       <div className={styles.stats}>

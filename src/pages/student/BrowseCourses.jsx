@@ -30,9 +30,6 @@ export default function BrowseCourses() {
         <h2 style={{ fontFamily: 'var(--font-display)', color: 'var(--accent)', fontSize: 24, marginBottom: 8 }}>
           Professional Training & Certification
         </h2>
-        <p style={{ color: 'var(--text)', fontSize: 14, marginBottom: 24 }}>
-          Comprehensive programs designed to build expertise in drone operations and AI analytics.
-        </p>
         <div className={styles.grid}>
           {premiumCourses.map(course => (
             <CourseCard key={course.id} course={course} showEnroll={true} onAction={handleEnroll} />
@@ -42,7 +39,6 @@ export default function BrowseCourses() {
 
       <div className={styles.header}>
         <div className={styles.title}>All Courses</div>
-        <div className={styles.subtitle}>Explore the full Drone Academy curriculum</div>
       </div>
 
       <div className={styles.filterRow}>
